@@ -9,7 +9,7 @@ const CampsiteDirectoryPage = () => {
     <Container>
       <Row>
         <Col sm='5' md='7'>
-            <CampsiteList />
+            <CampsitesList />
         </Col>
         <Col sm='7' md='5'>
             <CampsiteDetail campsite={selectedCampsite} />
