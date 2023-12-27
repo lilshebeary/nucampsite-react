@@ -15,4 +15,4 @@ const CampsiteDetail = ({ campsite }) => {
   )
 }
 
-export default CampsiteDetail
+export default CampsiteDetail;
