@@ -1,5 +1,5 @@
 import { Button, Label, Col, FormGroup } from "reactstrap";
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 
 
 const ContactForm = () => {
@@ -7,6 +7,16 @@ const ContactForm = () => {
         console.log('form values: ', values);
         console.log('in JSON format: ', JSON.stringify(values));
     }
+const validateContactForm = (values) => {
+    const errors = {};
+
+    const reg = /^\d+$/;
+    if(!reg.test(values.phoneNum)){
+        errors.phoneNum = 'The phone number should only contain numbers.';
+    }
+
+    return errors;
+};
 
   return (
     <Formik
@@ -20,6 +30,7 @@ const ContactForm = () => {
         feedback: "",
       }}
     onSubmit={handleSubmit}
+    validate={validateContactForm}
     >
       <Form>
         <FormGroup row>
@@ -58,6 +69,9 @@ const ContactForm = () => {
                 placeholder='Phone'
                 className="form-control" 
             />
+            <ErrorMessage name='phoneNum'>
+                {(msg) => <p className="text-danger">{msg}</p> }
+            </ErrorMessage>
           </Col>
         </FormGroup>
         <FormGroup row>
