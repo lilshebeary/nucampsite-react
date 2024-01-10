@@ -13,7 +13,7 @@ const commentsSlice = createSlice({
 export const commentsReducer = commentsSlice.reducer;
 
 export const selectCommentsByCampsiteId = (campsiteId) => state => {
-    return state.commentsSlice.commentsArray.filter(
+    return state.comments.commentsArray.filter(
         comment => comment.campsiteId === parseInt(campsiteId)
     );
 };
