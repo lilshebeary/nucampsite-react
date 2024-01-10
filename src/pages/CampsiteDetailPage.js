@@ -8,7 +8,7 @@ import SubHeader from '../components/SubHeader';
 
 const CampsiteDetailPage = () => {
     const { campsiteId } = useParams();
-    const campsite = useSelcetor(selectCampsiteById(campsiteId));
+    const campsite = useSelector(selectCampsiteById(campsiteId));
 
     console.log('campsite: ', campsite);
 
