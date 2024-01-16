@@ -27,5 +27,6 @@ function App() {
     </div>
   );
 }
-
+// json-server -h 0.0.0.0 -w db.json -p 3001 2000
+//npm install -g json-server@0.17.4 to run old code
 export default App;
