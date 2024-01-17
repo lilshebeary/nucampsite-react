@@ -7,19 +7,19 @@ export const fetchCampsites = createAsyncThunk(
     'campsites/fetchCampsites',
     async () => {
         const response = await fetch(baseUrl + 'campsites');
-        if(!response.ok){
-            return Promise.reject('Unable to fetch, status: ' + response.status)
+        if (!response.ok) {
+            return Promise.reject('Unable to fetch, status: ' + response.status);
         }
         const data = await response.json();
         return data;
     }
-)
+);
 
 const initialState = {
     campsitesArray: [],
     isLoading: true,
     errMsg: ''
-}
+};
 
 const campsitesSlice = createSlice({
     name: 'campsites',
@@ -32,7 +32,7 @@ const campsitesSlice = createSlice({
         [fetchCampsites.fulfilled]: (state, action) => {
             state.isLoading = false;
             state.errMsg = '';
-            state.campsitesArray = mapImageURL(action.payload)
+            state.campsitesArray = mapImageURL(action.payload);
         },
         [fetchCampsites.rejected]: (state, action) => {
             state.isLoading = false;
@@ -40,20 +40,22 @@ const campsitesSlice = createSlice({
         }
     }
 });
+
 export const campsitesReducer = campsitesSlice.reducer;
 
 export const selectAllCampsites = (state) => {
     return state.campsites.campsitesArray;
-}
+};
 
 export const selectCampsiteById = (id) => (state) => {
     return state.campsites.campsitesArray.find(
-        (campsite) => campsite.id === parseInt(id));
+        (campsite) => campsite.id === parseInt(id)
+    );
 };
 
 export const selectFeaturedCampsite = (state) => {
-    return state.campsites.campsitesArray.find(campsite => campsite.featured)
-}
+    return state.campsites.campsitesArray.find((campsite) => campsite.featured);
+};
 
 // export const selectRandomCampsite = () => {
 //     return CAMPSITES[Math.floor(Math.random() * CAMPSITES.length)];
