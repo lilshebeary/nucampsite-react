@@ -34,6 +34,8 @@ function App() {
     </div>
   );
 }
-// json-server -h 0.0.0.0 -w db.json -p 3001 2000
+// the newest version of json-server doesn't work with this code
+// json-server -H 0.0.0.0 --watch db.json -p 3001 -d 2000 
+//(this is older syntax but works with this code and the older server)
 //npm install -g json-server@0.17.4 to run old code
 export default App;
