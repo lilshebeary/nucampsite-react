@@ -29,7 +29,7 @@ const DisplayList = () => {
         return(
           featuredItem && (
             <Col md className="m-1" key={idx}>
-                <AnimatedDisplayCard item={item} />
+                <AnimatedDisplayCard item={featuredItem} />
             </Col>
           )
         )

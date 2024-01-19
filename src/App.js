@@ -20,7 +20,8 @@ function App() {
     dispatch(fetchCampsites());
     dispatch(fetchPartners());
     dispatch(fetchPromotions());
-  }, [dispatch])
+}, [dispatch]);
+
   return (
     <div className="App">
       <Header />
